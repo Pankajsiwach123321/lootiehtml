@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>FromValidation</title>
+    <style>
+        h2 {
+            font-size: 3vw;
+            text-align: center;
+            font-weight: 700;
+            text-decoration: overline;
+        }
+
+        section {
+            max-width: 1140px;
+            margin: auto;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            border: 2px solid rgb(89, 255, 0);
+            padding: 24px;
+            border-radius: 6px;
+        }
+
+        form input {
+            outline: 0;
+            padding: 6px 12px;
+            border: 2px solid rgb(1, 255, 247);
+            border-radius: 12px;
+        }
+
+        form input[type="submit"] {
+            background-color: rgb(0, 162, 255);
+            font-size: 24px;
+            color: white;
+            font-weight: 500;
+            transition: all .3s linear;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: rgb(0, 255, 170);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>From validation</h2>
+        <form id="summit">
+            <input placeholder="username" id="name" type="text">
+            <input placeholder="number" id="number" type="number">
+            <input placeholder="email" id="email" type="email">
+            <input value="submit" type="submit">
+        </form>
+        <lottie-player src="./assets/json/bounce.json" background="transparent" speed="1"
+            style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        <lottie-player src="./assets/json/mountain.json" background="transparent" speed="1"
+            style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+    </section>
+
+    <script>
+        const name = document.getElementById("name")
+        const number = document.getElementById("number")
+        const email = document.getElementById("email")
+        document.getElementById("summit").addEventListener("submit",
+            function hello(e) {
+                e.preventDefault()
+                if (name.value != "" && number.value != "" && email.value != "") {
+                    console.log(`name of user ${name.value}`)
+                    console.log(`number of user ${number.value}`)
+                    console.log(`email of user ${email.value}`)
+                    alert("from submit succefully")
+                    this.reset()
+                }
+                else {
+                    alert("fill all input properly")
+                }
+            })
+    </script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</body>
+
+</html>
