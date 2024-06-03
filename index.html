@@ -13,9 +13,17 @@
             text-decoration: overline;
         }
 
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
         section {
             max-width: 1140px;
             margin: auto;
+            text-align: center;
         }
 
         form {
@@ -60,10 +68,12 @@
             <input placeholder="email" id="email" type="email">
             <input value="submit" type="submit">
         </form>
-        <lottie-player src="./assets/json/bounce.json" background="transparent" speed="1"
-            style="width: 300px; height: 300px;" loop autoplay></lottie-player>
-        <lottie-player src="./assets/json/mountain.json" background="transparent" speed="1"
-            style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        <div class="center-content">
+            <lottie-player src="./assets/json/bounce.json" background="transparent" speed="1"
+                style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+            <lottie-player src="./assets/json/mountain.json" background="transparent" speed="1"
+                style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        </div>
     </section>
 
     <script>
