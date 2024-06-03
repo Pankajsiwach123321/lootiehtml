@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html mode="light" lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=4, initial-scale=1.0">
     <title>FromValidation</title>
     <style>
+        :root {
+            --black-color: #000000;
+            --white-color: #ffffff;
+            --sky-color: rgb(1, 255, 247);
+            --green-color: rgb(89, 255, 0);
+        }
+
+
+        [mode="dark"] {
+            --black-color: #ffffff;
+            --white-color: #000000;
+            --sky-color: rgb(89, 255, 0);
+            --green-color: rgb(1, 255, 247);
+        }
+
+        [mode="orange"] {
+            --black-color: #000000;
+            --white-color: #ff8800;
+            --sky-color: rgb(0, 255, 89);
+            --green-color: rgb(0, 66, 64);
+        }
+
+        .primery-button {
+            padding: 12px 24px;
+            margin-top: 14px;
+            background: var(--sky-color);
+            border-radius: 16px;
+            border: 0;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all .3s linear;
+        }
+
+        .primery-button:hover {
+            background-color: var(--green-color);
+        }
+
+        body {
+            background: var(--white-color);
+        }
+
         h2 {
+            color: var(--black-color);
             font-size: 3vw;
             text-align: center;
             font-weight: 700;
@@ -32,7 +74,7 @@
             display: flex;
             flex-direction: column;
             gap: 24px;
-            border: 2px solid rgb(89, 255, 0);
+            border: 2px solid var(--green-color);
             padding: 24px;
             border-radius: 6px;
         }
@@ -40,12 +82,13 @@
         form input {
             outline: 0;
             padding: 6px 12px;
-            border: 2px solid rgb(1, 255, 247);
+            border: 2px solid var(--sky-color);
             border-radius: 12px;
+            color: var(--black-color);
         }
 
         form input[type="submit"] {
-            background-color: rgb(0, 162, 255);
+            background-color: var(--sky-color);
             font-size: 24px;
             color: white;
             font-weight: 500;
@@ -68,6 +111,7 @@
             <input placeholder="email" id="email" type="email">
             <input value="submit" type="submit">
         </form>
+        <button id="toogle-theme" class="primery-button">toggle-theme</button>
         <div class="center-content">
             <lottie-player src="./assets/json/bounce.json" background="transparent" speed="1"
                 style="width: 300px; height: 300px;" loop autoplay></lottie-player>
@@ -94,6 +138,17 @@
                     alert("fill all input properly")
                 }
             })
+        document.getElementById("toogle-theme").addEventListener("click", function () {
+            if (document.documentElement.getAttribute("mode") === "light") {
+                document.documentElement.setAttribute("mode", "dark")
+            }
+            else if (document.documentElement.getAttribute("mode") === "dark") {
+                document.documentElement.setAttribute("mode", "orange")
+            }
+            else {
+                document.documentElement.setAttribute("mode", "light")
+            }
+        })
     </script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
